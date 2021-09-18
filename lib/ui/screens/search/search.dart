@@ -39,6 +39,12 @@ class SearchUI extends StatelessWidget {
   }
 
   Widget _buildSearchResult() {
+    if (_controller.searchResults.isEmpty) {
+      return const Center(
+        child: Text('No search items found matching your criteiria'),
+      );
+    }
+
     return Column(
       children: [
         for (var result in _controller.searchResults) EmployeeListItemWidget(employee: result),

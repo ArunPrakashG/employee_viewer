@@ -12,15 +12,26 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:employee_viewer/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  testWidgets('Check App', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(const EmployeeViewerApp());
+
+    // verify api result is success
+    expect(find.text('Ervin'), findsOneWidget);
+  });
+
+  testWidgets('Check Search', (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    await tester.pumpWidget(const EmployeeViewerApp());
+
+    // verify api result is success
+    expect(find.text('Leanne Graham'), findsOneWidget);
 
     // Tap the 'search' icon and trigger a frame.
     await tester.tap(find.byIcon(Icons.search));
     await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('Leanne Graham'), findsOneWidget);
+    // Verify that search is working as intented
+    expect(find.text('Leanne'), findsOneWidget);
   });
 }
