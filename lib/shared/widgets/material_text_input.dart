@@ -2,6 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+// This class is taken from a project which am working on currently.
+// I made this widget for that project and i didn't bother to make the exact same thing on this one because it will waste time.
 class MaterialTextInputWidget extends StatelessWidget {
   const MaterialTextInputWidget({
     Key? key,

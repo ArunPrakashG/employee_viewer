@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 
 import '../../../services/employee_api/employee.dart';
-import '../home/home.dart';
+import '../../../shared/widgets/employee_list_item.dart';
 
 class EmployeeUI extends StatelessWidget {
   const EmployeeUI({Key? key, required this.employee}) : super(key: key);

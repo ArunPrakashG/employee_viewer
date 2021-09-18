@@ -1,18 +1,11 @@
 import 'package:get/get.dart';
 
 import '../../../services/employee_api/employee.dart';
-import '../../screens/employee/employee.dart';
 
 class SearchController extends GetxController {
   late List<Employee?> employees = [];
 
   late RxList searchResults = [].obs;
-
-  Future<void> onSearchResultTapped(Employee employee) async => Get.to<void>(
-        () => EmployeeUI(
-          employee: employee,
-        ),
-      );
 
   void onTextChanged(String? newText) async {
     if (isNullOrEmpty(newText) || newText!.length <= 2) {
