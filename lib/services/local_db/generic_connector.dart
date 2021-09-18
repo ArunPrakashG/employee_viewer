@@ -1,8 +1,10 @@
-import 'package:employee_viewer/models/serializable_base.dart';
+import 'package:flutter/foundation.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart' as pb;
 import 'package:sembast/sembast.dart';
 import 'package:sembast/sembast_io.dart';
+
+import '../../models/serializable_base.dart';
 
 class GenericConnector<T extends ISerializable<T>> {
   GenericConnector({this.key, this.defaultInstanceGenerator});
@@ -32,6 +34,7 @@ class GenericConnector<T extends ISerializable<T>> {
 
       return await store.record(key).put(databaseClient!, value.toJson(), merge: merge) != null;
     } catch (e) {
+      debugPrint(e.toString());
       return false;
     }
   }

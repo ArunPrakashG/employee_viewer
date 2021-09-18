@@ -1,6 +1,6 @@
-import '../../employee_api/employee.dart';
 import '../generic_connector.dart';
+import '../models/employee_container.dart';
 
-class EmployeeProvider extends GenericConnector<Employee> {
-  EmployeeProvider() : super(key: 'employee', defaultInstanceGenerator: () => Employee());
+class EmployeeProvider extends GenericConnector<EmployeeContainer> {
+  EmployeeProvider() : super(key: 'employee', defaultInstanceGenerator: () => EmployeeContainer(employees: []));
 }

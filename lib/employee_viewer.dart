@@ -13,7 +13,7 @@ class EmployeeViewerApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomeUI(),
+      home: HomeUI(),
     );
   }
 }
