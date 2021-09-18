@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../services/employee_api/employee.dart';
 import '../../../shared/widgets/employee_list_item.dart';
@@ -131,12 +132,23 @@ class EmployeeUI extends StatelessWidget {
                   style: const TextStyle(fontSize: 18),
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.only(right: 15, left: 15, bottom: 15),
-                padding: const EdgeInsets.all(5),
-                child: Text(
-                  '${employee.address?.geo?.lat} : ${employee.address?.geo?.lng}',
-                  style: const TextStyle(fontSize: 18),
+              InkWell(
+                onTap: () async {
+                  if (employee.address?.geo?.lat == null || employee.address?.geo?.lng == null) {
+                    return;
+                  }
+                  String googleUrl = 'https://www.google.com/maps/search/?api=1&query=${employee.address?.geo?.lat},${employee.address?.geo?.lng}';
+                  if (await canLaunch(googleUrl)) {
+                    await launch(googleUrl);
+                  }
+                },
+                child: Container(
+                  margin: const EdgeInsets.only(right: 15, left: 15, bottom: 15),
+                  padding: const EdgeInsets.all(5),
+                  child: Text(
+                    '${employee.address?.geo?.lat} : ${employee.address?.geo?.lng}',
+                    style: const TextStyle(fontSize: 18),
+                  ),
                 ),
               ),
             ],
