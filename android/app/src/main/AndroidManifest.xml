@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.employee_viewer">
+    package="com.arun.employee_viewer">
    <application
-        android:label="employee_viewer"
+        android:label="Employee Viewer - Arun"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
@@ -38,4 +38,10 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
+    <queries>
+    <intent>
+      <action android:name="android.intent.action.VIEW" />
+      <data android:scheme="https" />
+    </intent>
+  </queries>
 </manifest>

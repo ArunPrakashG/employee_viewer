@@ -139,15 +139,16 @@ class EmployeeUI extends StatelessWidget {
                   }
                   String googleUrl = 'https://www.google.com/maps/search/?api=1&query=${employee.address?.geo?.lat},${employee.address?.geo?.lng}';
                   if (await canLaunch(googleUrl)) {
+                    debugPrint('launching search map');
                     await launch(googleUrl);
                   }
                 },
                 child: Container(
                   margin: const EdgeInsets.only(right: 15, left: 15, bottom: 15),
                   padding: const EdgeInsets.all(5),
-                  child: Text(
-                    '${employee.address?.geo?.lat} : ${employee.address?.geo?.lng}',
-                    style: const TextStyle(fontSize: 18),
+                  child: const Text(
+                    'Location (Click to view in maps)',
+                    style: TextStyle(fontSize: 16),
                   ),
                 ),
               ),
